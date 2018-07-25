@@ -18,9 +18,9 @@ namespace MainWebApp
     {
         private List<IWebPlugin> _plugins = new List<IWebPlugin>();
 
-        public Startup()
+        public Startup(IHostingEnvironment hostingEnvironment)
         {
-            foreach (var pluginFile in Directory.GetFiles(AppContext.BaseDirectory, "plugin.config", SearchOption.AllDirectories))
+            foreach (var pluginFile in Directory.GetFiles(hostingEnvironment.ContentRootPath, "plugin.config", SearchOption.AllDirectories))
             {
                 var loader = PluginLoader.CreateFromConfigFile(pluginFile,
                     // this ensures that the plugin resolves to the same version of DependencyInjection
