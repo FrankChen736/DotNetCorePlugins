@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebAppPlugin1.ViewModels;
 
 namespace WebAppPlugin1.Controllers
 {
@@ -10,7 +11,8 @@ namespace WebAppPlugin1.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var model = new TestViewModel { Value = "Test Value" };
+            return View(model);
         }
     }
 }
